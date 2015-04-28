@@ -1,6 +1,4 @@
-figures/
 *~
-*.png
 .RData
 .Rhistory
 .Rproj*
