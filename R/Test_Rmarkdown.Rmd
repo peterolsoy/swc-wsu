@@ -1,0 +1,44 @@
+---
+title: "SWC R Markdown Test"
+author: "Peter Olsoy"
+date: "April 28, 2015"
+output: html_document
+---
+
+I don't really know what I'm supposed to be doing right now.
+
+```{r global_knitr_options, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE,
+                      fig.path="../figures/",
+                      fig.height=8, fig.width=11)
+```
+
+```{r load_libs, results="hide", message=FALSE, warning=FALSE}
+#load libraries
+library(ggplot2)
+library(dplyr)
+
+#source functions
+source("../R/func.R")
+```
+
+```{r load_data}
+#load in the data
+gapminder <- read.csv("../data/gapminder.csv")
+```
+
+This gapminder data has `r nrow(gapminder)` rows and `r ncol(gapminder)` columns.   
+
+Here is just the data for the United States:
+
+```{r show_usa_data}
+gapminder %>%
+  filter(country == "United States")
+```
+
+You can also embed plots, for example:
+
+```{r, plot_country}
+plot_country("United States")
+```
+

@@ -1,0 +1,46 @@
+---
+title: "Capstone Exercise"
+author: "Peter Olsoy"
+date: "April 28, 2015"
+output: html_document
+---
+
+
+```{r global_knitr_options, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE,
+                      fig.path="../figures/",
+                      fig.height=8, fig.width=11)
+```
+
+```{r load_libs, results="hide", message=FALSE, warning=FALSE}
+#load libraries
+library(ggplot2)
+library(dplyr)
+```
+
+```{r load_data}
+#load in the data
+gapminder <- read.csv("../data/gapminder.csv")
+```
+
+```{r select_countries}
+gap_select <- gapminder %>%
+  filter(country %in% c("United States", "Mexico", "Canada"))
+```
+
+```{r scatter_countries}
+gapselect %>%
+  ggplot(aes(x=year, y=gdpPercap)) +
+  geom_point() + facet_grid(~ country)
+```
+
+Trends in data?
+
+```{r stats_2007}
+gapminder %>%
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarize(meanLifeExp = mean(lifeExp),
+            minLifeExp = min(lifeExp),
+            maxLifeExp = max(lifeExp))
+```
