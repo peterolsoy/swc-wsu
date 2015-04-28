@@ -28,13 +28,13 @@ gap_select <- gapminder %>%
   filter(country %in% c("United States", "Mexico", "Canada"))
 ```
 
-```{r scatter_countries}
-gapselect %>%
+```{r scatter_countries, fig.height=6}
+gap_select %>%
   ggplot(aes(x=year, y=gdpPercap)) +
   geom_point() + facet_grid(~ country)
 ```
 
-Trends in data?
+All three countries show exponential trends in GPD per capita over the given time frame. Canada and the United States start in relatively the same place and end with similar GDP. However, Mexico started far lower and is only now reaching where the USA (and Canada) were at during the start of these records. Funny enough, the order of plots gives a possible future continuation of Mexico's growth into where the United States was in the past.
 
 ```{r stats_2007}
 gapminder %>%
