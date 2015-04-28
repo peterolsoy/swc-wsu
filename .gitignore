@@ -1,0 +1,9 @@
+data/
+figures/
+*~
+*.png
+.RData
+.Rhistory
+.Rproj*
+*.Rproj
+.DS*
